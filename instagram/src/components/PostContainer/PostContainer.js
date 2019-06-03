@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { Navbar, NavbarBrand, Form, FormGroup, Input } from "reactstrap";
+import { FormGroup, Input } from "reactstrap";
 
 import Comment from "../Comment/Comment";
 
@@ -92,6 +92,7 @@ class PostContainer extends Component {
   render() {
     const { data } = this.props;
     let { comments, comment } = this.state;
+    console.log(data);
 
     return (
       <div style={styles.container}>
@@ -132,5 +133,15 @@ class PostContainer extends Component {
     );
   }
 }
+
+PostContainer.propTypes = {
+  data: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    likes: PropTypes.number,
+    imageUrl: PropTypes.string.isRequired,
+    thumbnailUrl: PropTypes.string.isRequired,
+    comments: PropTypes.arrayOf(PropTypes.object)
+  })
+};
 
 export default PostContainer;
