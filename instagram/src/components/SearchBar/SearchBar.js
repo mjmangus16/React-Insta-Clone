@@ -49,9 +49,9 @@ const SearchBar = () => {
         </FormGroup>
       </Form>
       <div style={styles.sideContainerRight}>
-        <i className="far fa-compass fa-2x" />
-        <i className="far fa-heart fa-2x" />
-        <i className="far fa-user fa-2x" />
+        <i className="far fa-compass fa-lg" />
+        <i className="far fa-heart fa-lg" />
+        <i className="far fa-user fa-lg" />
       </div>
     </Navbar>
   );
