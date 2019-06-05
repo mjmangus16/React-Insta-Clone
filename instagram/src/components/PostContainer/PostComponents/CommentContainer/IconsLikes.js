@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const styles = {
   commentIcons: {},
@@ -16,6 +17,10 @@ const IconsLikes = ({ likes }) => {
       </p>
     </div>
   );
+};
+
+IconsLikes.propTypes = {
+  likes: PropTypes.number.isRequired
 };
 
 export default IconsLikes;

@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { FormGroup, Input } from "reactstrap";
 
 const styles = {
@@ -40,6 +41,12 @@ const AddComment = ({ comment, createComment, postComment }) => {
       </FormGroup>
     </div>
   );
+};
+
+AddComment.propTypes = {
+  comment: PropTypes.string.isRequired,
+  createComment: PropTypes.func.isRequired,
+  postComment: PropTypes.func.isRequired
 };
 
 export default AddComment;
