@@ -1,9 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
+
 import { Navbar, NavbarBrand, Form, FormGroup, Input } from "reactstrap";
 
 const styles = {
-  sideContainer: {
+  sideContainerLeft: {
     display: "flex",
     flexDirection: "row",
     alignItems: "center",
@@ -11,7 +11,7 @@ const styles = {
   },
   insta_icon: {
     width: 75,
-    height: 25,
+    height: 32,
     borderRight: "1px solid black"
   },
   heading: {
@@ -22,14 +22,23 @@ const styles = {
   },
   formGroup: {
     margin: "0px auto"
+  },
+  sideContainerRight: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    width: "25%",
+    justifyContent: "space-around"
   }
 };
 
 const SearchBar = () => {
   return (
     <Navbar color="light" light expand="md">
-      <div style={styles.sideContainer}>
-        <div style={styles.insta_icon} />
+      <div style={styles.sideContainerLeft}>
+        <div style={styles.insta_icon}>
+          <i className="fab fa-instagram fa-2x" />
+        </div>
         <NavbarBrand style={styles.heading} href="/">
           Instagram
         </NavbarBrand>
@@ -39,7 +48,11 @@ const SearchBar = () => {
           <Input type="search" name="search" id="search" placeholder="search" />
         </FormGroup>
       </Form>
-      <div style={styles.sideContainer} />
+      <div style={styles.sideContainerRight}>
+        <i className="far fa-compass fa-2x" />
+        <i className="far fa-heart fa-2x" />
+        <i className="far fa-user fa-2x" />
+      </div>
     </Navbar>
   );
 };
