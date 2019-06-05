@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import "./App.css";
 
 import data from "./data/dummy-data";
@@ -6,21 +6,33 @@ import data from "./data/dummy-data";
 import SearchBar from "./components/SearchBar/SearchBar";
 import PostContainer from "./components/PostContainer/PostContainer";
 
-const App = () => {
-  let content;
+class App extends Component {
+  state = {
+    posts: []
+  };
 
-  if (data.length > 0) {
-    content = data.map((item, i) => (
-      <PostContainer data={item} key={`post-${i}`} />
-    ));
+  componentDidMount() {
+    this.setState({ posts: [...data] });
   }
 
-  return (
-    <div className="App">
-      <SearchBar />
-      {content}
-    </div>
-  );
-};
+  render() {
+    const { posts } = this.state;
+
+    let content;
+
+    if (data.length > 0) {
+      content = posts.map((item, i) => (
+        <PostContainer data={item} key={`post-${i}`} />
+      ));
+    }
+
+    return (
+      <div className="App">
+        <SearchBar />
+        {content}
+      </div>
+    );
+  }
+}
 
 export default App;
