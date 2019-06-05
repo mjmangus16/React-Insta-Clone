@@ -1,32 +1,28 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { FormGroup, Input } from "reactstrap";
 
 const styles = {
-  form: {
+  formContainer: {
     width: "calc(100% - 20px)",
     borderTop: "1px solid lightGrey",
     margin: "auto"
   },
-  formGroup: {
+  form: {
     margin: 0,
+    height: 35,
     display: "flex"
   },
   input: {
     border: "none",
-    width: "80%"
-  },
-  post: {
-    width: "20%",
-    padding: "0px 10px"
+    width: "100%"
   }
 };
 
 const AddComment = ({ comment, createComment, postComment }) => {
   return (
-    <div style={styles.form}>
-      <FormGroup style={styles.formGroup}>
-        <Input
+    <div style={styles.formContainer}>
+      <form style={styles.form} onSubmit={e => postComment(e, comment)}>
+        <input
           type="text"
           name="comment"
           id="comment-input"
@@ -35,10 +31,7 @@ const AddComment = ({ comment, createComment, postComment }) => {
           value={comment}
           onChange={e => createComment(e.target.value)}
         />
-        <button style={styles.post} onClick={() => postComment(comment)}>
-          POST
-        </button>
-      </FormGroup>
+      </form>
     </div>
   );
 };

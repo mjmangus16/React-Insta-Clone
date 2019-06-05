@@ -5,7 +5,8 @@ const styles = {
   commentIcons: {
     display: "flex",
     justifyContent: "space-around",
-    marginTop: 10
+    marginTop: 10,
+    width: 92
   },
   likes: {
     padding: 10,
@@ -13,11 +14,16 @@ const styles = {
   }
 };
 
-const IconsLikes = ({ likes }) => {
+const IconsLikes = ({ likes, likePost, liked }) => {
   return (
     <div>
       <div style={styles.commentIcons}>
-        <i className="far fa-heart fa-lg" />
+        {!liked ? (
+          <i className="far fa-heart fa-lg" onClick={likePost} />
+        ) : (
+          <i className="fas fa-heart fa-lg" onClick={likePost} />
+        )}
+
         <i className="far fa-comment fa-lg" />
       </div>
       <p style={styles.likes}>
