@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import "./App.css";
 
-import Container from "./components/Container/Container";
+import Login from "./components/Login/Login";
+import AppContainer from "./components/AppContainer/AppContainer";
 import withAuthenticate from "./components/Authentication/withAuthenticate";
 
-const ComponentFromWithAuthenticate = withAuthenticate(Container);
+const ComponentFromWithAuthenticate = withAuthenticate(AppContainer)(Login);
 
 class App extends Component {
   render() {

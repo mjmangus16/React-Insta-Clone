@@ -5,7 +5,7 @@ import data from "../../data/dummy-data";
 import SearchBar from "./SearchBar/SearchBar";
 import PostContainer from "./PostContainer/PostContainer";
 
-class Container extends Component {
+class AppContainer extends Component {
   state = {
     posts: []
   };
@@ -34,4 +34,4 @@ class Container extends Component {
   }
 }
 
-export default Container;
+export default AppContainer;
