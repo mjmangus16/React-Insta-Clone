@@ -18,7 +18,8 @@ class CommentContainer extends Component {
     comments: [],
     comment: "",
     likes: 0,
-    liked: false
+    liked: false,
+    showComment: false
   };
 
   componentDidMount() {
@@ -37,6 +38,12 @@ class CommentContainer extends Component {
         return { likes: this.state.likes - 1, liked: !this.state.liked };
       });
     }
+  };
+
+  toggleComment = () => {
+    this.setState(() => {
+      return { showComment: !this.state.showComment };
+    });
   };
 
   postComment = (event, comment) => {
@@ -63,15 +70,21 @@ class CommentContainer extends Component {
   };
 
   render() {
-    let { comments, comment, likes, liked } = this.state;
+    let { comments, comment, likes, liked, showComment } = this.state;
     return (
       <div style={styles.commentSection}>
-        <IconsLikes likes={likes} likePost={this.likePost} liked={liked} />
+        <IconsLikes
+          likes={likes}
+          likePost={this.likePost}
+          liked={liked}
+          toggleComment={this.toggleComment}
+        />
         <Comments comments={comments} />
         <AddComment
           comment={comment}
           createComment={this.createCommentHandler}
           postComment={this.postComment}
+          show={showComment}
         />
       </div>
     );

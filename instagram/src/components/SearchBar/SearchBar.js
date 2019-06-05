@@ -32,7 +32,7 @@ const styles = {
   }
 };
 
-const SearchBar = () => {
+const SearchBar = ({ search }) => {
   return (
     <Navbar color="light" light expand="md">
       <div style={styles.sideContainerLeft}>
@@ -45,7 +45,13 @@ const SearchBar = () => {
       </div>
       <Form style={styles.form}>
         <FormGroup style={styles.formGroup}>
-          <Input type="search" name="search" id="search" placeholder="search" />
+          <Input
+            type="search"
+            name="search"
+            id="search"
+            placeholder="search"
+            onChange={e => search(e)}
+          />
         </FormGroup>
       </Form>
       <div style={styles.sideContainerRight}>

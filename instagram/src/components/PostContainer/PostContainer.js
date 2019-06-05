@@ -14,7 +14,6 @@ const styles = {
 };
 
 const PostContainer = ({ data }) => {
-  console.log(data);
   return (
     <div style={styles.container}>
       <PostHeader thumbnail={data.thumbnailUrl} username={data.username} />

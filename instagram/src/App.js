@@ -15,6 +15,12 @@ class App extends Component {
     this.setState({ posts: [...data] });
   }
 
+  searchPosts = e => {
+    this.setState({
+      posts: data.filter(post => post.username.includes(e.target.value))
+    });
+  };
+
   render() {
     const { posts } = this.state;
 
@@ -28,7 +34,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        <SearchBar />
+        <SearchBar search={this.searchPosts} />
         {content}
       </div>
     );

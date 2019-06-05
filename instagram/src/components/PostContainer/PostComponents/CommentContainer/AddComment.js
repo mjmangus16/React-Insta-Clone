@@ -18,22 +18,26 @@ const styles = {
   }
 };
 
-const AddComment = ({ comment, createComment, postComment }) => {
-  return (
-    <div style={styles.formContainer}>
-      <form style={styles.form} onSubmit={e => postComment(e, comment)}>
-        <input
-          type="text"
-          name="comment"
-          id="comment-input"
-          placeholder="Add a comment..."
-          style={styles.input}
-          value={comment}
-          onChange={e => createComment(e.target.value)}
-        />
-      </form>
-    </div>
-  );
+const AddComment = ({ comment, createComment, postComment, show }) => {
+  if (show) {
+    return (
+      <div style={styles.formContainer}>
+        <form style={styles.form} onSubmit={e => postComment(e, comment)}>
+          <input
+            type="text"
+            name="comment"
+            id="comment-input"
+            placeholder="Add a comment..."
+            style={styles.input}
+            value={comment}
+            onChange={e => createComment(e.target.value)}
+          />
+        </form>
+      </div>
+    );
+  } else {
+    return <div />;
+  }
 };
 
 AddComment.propTypes = {

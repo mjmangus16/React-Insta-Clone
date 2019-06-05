@@ -14,7 +14,7 @@ const styles = {
   }
 };
 
-const IconsLikes = ({ likes, likePost, liked }) => {
+const IconsLikes = ({ likes, likePost, liked, toggleComment }) => {
   return (
     <div>
       <div style={styles.commentIcons}>
@@ -24,7 +24,7 @@ const IconsLikes = ({ likes, likePost, liked }) => {
           <i className="fas fa-heart fa-lg" onClick={likePost} />
         )}
 
-        <i className="far fa-comment fa-lg" />
+        <i className="far fa-comment fa-lg" onClick={toggleComment} />
       </div>
       <p style={styles.likes}>
         <strong>{`${likes} likes`}</strong>
