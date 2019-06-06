@@ -22,12 +22,13 @@ class AppContainer extends Component {
 
   render() {
     const { posts } = this.state;
+    const { logout, username } = this.props;
 
     return (
       <div className="App">
-        <SearchBar search={this.searchPosts} />
+        <SearchBar search={this.searchPosts} logout={logout} />
         {posts.map((post, i) => (
-          <PostContainer data={post} key={`post-${i}`} />
+          <PostContainer data={post} key={`post-${i}`} username={username} />
         ))}
       </div>
     );

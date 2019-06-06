@@ -1,19 +1,9 @@
 import React from "react";
+import styled from "styled-components";
 
 import { Navbar, NavbarBrand, Form, FormGroup, Input } from "reactstrap";
 
 const styles = {
-  sideContainerLeft: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    width: "25%"
-  },
-  insta_icon: {
-    width: 75,
-    height: 32,
-    borderRight: "1px solid black"
-  },
   heading: {
     paddingLeft: 15
   },
@@ -22,27 +12,41 @@ const styles = {
   },
   formGroup: {
     margin: "0px auto"
-  },
-  sideContainerRight: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    width: "25%",
-    justifyContent: "space-around"
   }
 };
 
-const SearchBar = ({ search }) => {
+const SideContainerLeft = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 25%;
+`;
+
+const InstaIcon = styled.div`
+  width: 75px;
+  height: 32px;
+  border-right: 1px solid black;
+`;
+
+const SideContainerRight = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 25%;
+  justify-content: space-around;
+`;
+
+const SearchBar = ({ search, logout }) => {
   return (
     <Navbar color="light" light expand="md">
-      <div style={styles.sideContainerLeft}>
-        <div style={styles.insta_icon}>
+      <SideContainerLeft>
+        <InstaIcon>
           <i className="fab fa-instagram fa-2x" />
-        </div>
+        </InstaIcon>
         <NavbarBrand style={styles.heading} href="/">
           Instagram
         </NavbarBrand>
-      </div>
+      </SideContainerLeft>
       <Form style={styles.form}>
         <FormGroup style={styles.formGroup}>
           <Input
@@ -54,11 +58,11 @@ const SearchBar = ({ search }) => {
           />
         </FormGroup>
       </Form>
-      <div style={styles.sideContainerRight}>
+      <SideContainerRight>
         <i className="far fa-compass fa-lg" />
         <i className="far fa-heart fa-lg" />
-        <i className="far fa-user fa-lg" />
-      </div>
+        <i className="far fa-user fa-lg" onClick={logout} />
+      </SideContainerRight>
     </Navbar>
   );
 };

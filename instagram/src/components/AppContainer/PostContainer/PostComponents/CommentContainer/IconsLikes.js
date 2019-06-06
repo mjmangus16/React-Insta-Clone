@@ -1,23 +1,23 @@
 import React from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const styles = {
-  commentIcons: {
-    display: "flex",
-    justifyContent: "space-around",
-    marginTop: 10,
-    width: 92
-  },
-  likes: {
-    padding: 10,
-    marginBottom: 0
-  }
-};
+const CommentIcons = styled.div`
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  width: 92px;
+`;
+
+const Likes = styled.div`
+  padding: 10px;
+  margin-bottom: 0px;
+`;
 
 const IconsLikes = ({ likes, likePost, liked, toggleComment }) => {
   return (
     <div>
-      <div style={styles.commentIcons}>
+      <CommentIcons>
         {!liked ? (
           <i className="far fa-heart fa-lg" onClick={likePost} />
         ) : (
@@ -25,10 +25,10 @@ const IconsLikes = ({ likes, likePost, liked, toggleComment }) => {
         )}
 
         <i className="far fa-comment fa-lg" onClick={toggleComment} />
-      </div>
-      <p style={styles.likes}>
+      </CommentIcons>
+      <Likes>
         <strong>{`${likes} likes`}</strong>
-      </p>
+      </Likes>
     </div>
   );
 };

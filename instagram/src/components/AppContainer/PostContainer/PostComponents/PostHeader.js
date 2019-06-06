@@ -1,29 +1,30 @@
 import React from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const styles = {
-  header: {
-    display: "flex",
-    alignItems: "center"
-  },
-  thumbnail: {
-    width: 30,
-    height: 30,
-    borderRadius: "50%",
-    margin: 10,
-    textAlign: "left"
-  },
-  username: {
-    margin: 0
-  }
-};
+const Header = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Thumbnail = styled.img`
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin: 10px;
+  text-align: left;
+`;
+
+const Username = styled.p`
+  margin: 0px;
+`;
 
 const PostHeader = ({ thumbnail, username }) => {
   return (
-    <div style={styles.header}>
-      <img style={styles.thumbnail} src={thumbnail} alt="" />
-      <p style={styles.username}>{username}</p>
-    </div>
+    <Header>
+      <Thumbnail src={thumbnail} alt="" />
+      <Username>{username}</Username>
+    </Header>
   );
 };
 

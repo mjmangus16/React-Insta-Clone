@@ -1,46 +1,45 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 
-const styles = {
-  container: {
-    width: 500,
-    height: 500,
-    margin: "100px auto",
-    border: "solid lightGrey 1px"
-  },
-  form: {
-    width: "100%",
-    height: "50%",
-    marginTop: 100
-  },
-  input: {
-    width: "50%",
-    margin: "15px auto"
-  }
-};
+const Container = styled.div`
+  width: 500px;
+  height: 500px;
+  margin: 100px auto;
+  border: solid lightGrey 1px;
+`;
+
+const Form = styled.form`
+  width: 100%;
+  height: 50%;
+  margin-top: 100px;
+`;
+
+const Input = styled.input`
+  width: 50%;
+  margin: 15px auto;
+`;
 
 class Login extends Component {
   render() {
     const { toggleLogin, getUsername, getPassword } = this.props;
     return (
-      <div style={styles.container}>
-        <form style={styles.form}>
-          <input
+      <Container>
+        <Form>
+          <Input
             type="text"
             placeholder="Username"
-            style={styles.input}
             onChange={e => getUsername(e.target.value)}
           />
           <br />
-          <input
+          <Input
             type="password"
             placeholder="Password"
-            style={styles.input}
             onChange={e => getPassword(e.target.value)}
           />
           <br />
           <button onClick={e => toggleLogin(e)}>Login</button>
-        </form>
-      </div>
+        </Form>
+      </Container>
     );
   }
 }

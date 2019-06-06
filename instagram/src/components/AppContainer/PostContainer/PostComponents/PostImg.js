@@ -1,14 +1,13 @@
 import React from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const styles = {
-  image: {
-    width: "100%"
-  }
-};
+const Image = styled.img`
+  width: 100%;
+`;
 
 const PostImg = ({ img }) => {
-  return <img style={styles.image} src={img} alt="" />;
+  return <Image src={img} alt="" />;
 };
 
 PostImg.propTypes = {

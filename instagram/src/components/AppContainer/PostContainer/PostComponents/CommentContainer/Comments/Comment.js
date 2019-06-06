@@ -1,18 +1,17 @@
 import React from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const styles = {
-  comment: {
-    textAlign: "left",
-    padding: "0px 10px"
-  }
-};
+const CommentComp = styled.p`
+  text-align: left;
+  padding: 0px 10px;
+`;
 
 const Comment = ({ comment }) => {
   return (
-    <p style={styles.comment}>
+    <CommentComp>
       <strong>{comment.username}</strong> {comment.text}
-    </p>
+    </CommentComp>
   );
 };
 

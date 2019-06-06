@@ -18,11 +18,8 @@ const withAuthenticate = AppContainer => Login =>
 
     login = e => {
       e.preventDefault();
-
-      if (this.state.username === "Mike" && this.state.password === "123456") {
-        localStorage.setItem("auth", "true");
-        this.setState({ auth: !this.state.auth });
-      }
+      localStorage.setItem("auth", "true");
+      this.setState({ auth: !this.state.auth });
     };
 
     logout = () => {
@@ -39,7 +36,7 @@ const withAuthenticate = AppContainer => Login =>
     };
 
     render() {
-      const { auth } = this.state;
+      const { auth, username } = this.state;
 
       if (!auth) {
         return (
@@ -50,7 +47,7 @@ const withAuthenticate = AppContainer => Login =>
           />
         );
       } else {
-        return <AppContainer logout={this.logout} />;
+        return <AppContainer logout={this.logout} username={username} />;
       }
     }
   };

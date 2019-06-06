@@ -1,17 +1,16 @@
 import React, { Component } from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import IconsLikes from "./IconsLikes";
 import Comments from "./Comments/Comments";
 import AddComment from "./AddComment";
 
-const styles = {
-  commentSection: {
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "flex-start"
-  }
-};
+const CommentSection = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`;
 
 class CommentContainer extends Component {
   state = {
@@ -53,7 +52,7 @@ class CommentContainer extends Component {
         return {
           comments: [
             ...this.state.comments,
-            { username: "Mike", text: comment }
+            { username: this.props.username, text: comment }
           ],
           comment: ""
         };
@@ -70,9 +69,9 @@ class CommentContainer extends Component {
   };
 
   render() {
-    let { comments, comment, likes, liked, showComment } = this.state;
+    const { comments, comment, likes, liked, showComment } = this.state;
     return (
-      <div style={styles.commentSection}>
+      <CommentSection>
         <IconsLikes
           likes={likes}
           likePost={this.likePost}
@@ -86,7 +85,7 @@ class CommentContainer extends Component {
           postComment={this.postComment}
           show={showComment}
         />
-      </div>
+      </CommentSection>
     );
   }
 }

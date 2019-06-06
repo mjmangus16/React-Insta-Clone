@@ -1,25 +1,28 @@
 import React from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 
 import PostHeader from "./PostComponents/PostHeader";
 import PostImg from "./PostComponents/PostImg";
 import CommentContainer from "./PostComponents/CommentContainer/CommentContainer";
 
-const styles = {
-  container: {
-    maxWidth: 500,
-    margin: "25px auto",
-    border: "1px solid lightGrey"
-  }
-};
+const Container = styled.div`
+  max-width: 500;
+  margin: 25px auto;
+  border: 1px solid lightGrey;
+`;
 
-const PostContainer = ({ data }) => {
+const PostContainer = ({ data, username }) => {
   return (
-    <div style={styles.container}>
+    <Container>
       <PostHeader thumbnail={data.thumbnailUrl} username={data.username} />
       <PostImg img={data.imageUrl} />
-      <CommentContainer likes={data.likes} comments={data.comments} />
-    </div>
+      <CommentContainer
+        likes={data.likes}
+        comments={data.comments}
+        username={username}
+      />
+    </Container>
   );
 };
 

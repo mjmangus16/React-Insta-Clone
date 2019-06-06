@@ -1,39 +1,39 @@
 import React from "react";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 
-const styles = {
-  formContainer: {
-    width: "calc(100% - 20px)",
-    borderTop: "1px solid lightGrey",
-    margin: "auto"
-  },
-  form: {
-    margin: 0,
-    height: 35,
-    display: "flex"
-  },
-  input: {
-    border: "none",
-    width: "100%"
-  }
-};
+const FormContainer = styled.div`
+  width: calc(100% - 20px);
+  border-top: 1px solid lightGrey;
+  margin: auto;
+`;
+
+const Form = styled.form`
+  margin: 0px;
+  height: 35px;
+  display: flex;
+`;
+
+const Input = styled.input`
+  border: none;
+  width: 100%;
+`;
 
 const AddComment = ({ comment, createComment, postComment, show }) => {
   if (show) {
     return (
-      <div style={styles.formContainer}>
-        <form style={styles.form} onSubmit={e => postComment(e, comment)}>
-          <input
+      <FormContainer>
+        <Form onSubmit={e => postComment(e, comment)}>
+          <Input
             type="text"
             name="comment"
             id="comment-input"
             placeholder="Add a comment..."
-            style={styles.input}
             value={comment}
             onChange={e => createComment(e.target.value)}
           />
-        </form>
-      </div>
+        </Form>
+      </FormContainer>
     );
   } else {
     return <div />;
