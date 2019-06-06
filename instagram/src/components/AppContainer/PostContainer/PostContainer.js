@@ -7,7 +7,7 @@ import PostImg from "./PostComponents/PostImg";
 import CommentContainer from "./PostComponents/CommentContainer/CommentContainer";
 
 const Container = styled.div`
-  max-width: 500;
+  max-width: 500px;
   margin: 25px auto;
   border: 1px solid lightGrey;
 `;
